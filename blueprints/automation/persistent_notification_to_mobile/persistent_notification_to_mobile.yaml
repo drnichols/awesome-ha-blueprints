@@ -57,7 +57,7 @@ action:
       data:
         # Android replace notifications, notification group and notification channel
         tag: '{{ trigger.event.data.service_data.notification_id if replace_notifications else "" }}'
-        group: !input notification_group
+        group: '{{ trigger.event.data.service_data.title if !input notification_group != "" else !input notification_group }}'
         channel: !input android_notification_channel
         # iOS notification group
         push:

@@ -64,4 +64,4 @@ action:
           thread-id: !input notification_group
         # iOS replace notifications
         apns_headers:
-          apns-collapse-id: '{{ trigger.event.data.service_data.notification_id if replace_notifications else "default" }}'
+          apns-collapse-id: '{{ trigger.event.data.service_data.notification_id if replace_notifications else trigger.event.data.service_data.title }}'
